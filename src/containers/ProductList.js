@@ -1,25 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v4';
 
-import ItemLink from './../components/Item';
+// import ItemLink from './../components/Item';
 import { fetchItems } from './../actions/index.js';
 
+class ProductList extends Component {
+  componentDidMount() {
+    this.props.fetchItems();
+  }
+  render() {
+    // const renderItems = this.props.items.map(item => <ItemLink key={uuid()} {...item}/>);
+    let renderItems = 'Loading...';
+    if (Object.keys(this.props.items).length){
 
-const ProductList = (props) => {
-  const renderItems = props.items.map(item => <ItemLink key={uuid()} {...item}/>);
-  return (
-    <ul>
-      {renderItems}
-    </ul>
-  );
-};
-
+      renderItems = Object.keys(this.props.items).map((key) => {
+        return <li>{this.props.items[key].name}</li>;
+      
+      });
+    }
+    return (
+      <ul>{renderItems}</ul>
+    );
+  }
+}
 
 ProductList.propTypes = {
-  items: PropTypes.array.isRequired,
+  fetchItems: PropTypes.func.isRequired,
+  items: PropTypes.object.isRequired,
 };
 
 
