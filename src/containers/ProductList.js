@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v4';
 
@@ -20,4 +21,9 @@ ProductList.propTypes = {
 };
 
 
-export default ProductList;
+const mapStateToProps = (state) => ({
+  items: state.items
+});
+
+
+export default connect(mapStateToProps, null)(ProductList);
