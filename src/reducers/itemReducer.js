@@ -1,17 +1,15 @@
 import { FETCH_ITEM } from './../constants';
 
-const item = {
+const currentItem = {
   name: 'Thing',
   price: '13412344124'
 };
 
-export default function(state = item, action) {
+export default function(state = currentItem, action) {
   switch (action.type) {
     case FETCH_ITEM:
       return action.payload;
-
     default:
       return state;
   }
-
 }
