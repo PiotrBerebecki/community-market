@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
+import uuid from 'uuid/v4';
 
 import Item from './../components/Item';
 
@@ -15,11 +15,11 @@ class ProductList extends Component {
       ]
     };
   }
-
   render() {
+    const renderItems = this.state.items.map(item => <Item  key={uuid()} {...item}/>);
     return (
       <ul>
-        {this.state.items.map(item => <Item key={uuid()} {...item}/>)}
+        {renderItems}
       </ul>
     );
   }
