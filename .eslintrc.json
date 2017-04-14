@@ -24,7 +24,7 @@
     "semi": 1,
     "quotes": [1, "single"],
     "no-console": 0,
-    "no-unused-vars": 1,
+    "no-unused-vars": 0,
     "no-debugger": 1,
     "indent": [1, 2, {"SwitchCase": 1}],
     "jsx-quotes": 1,
@@ -60,6 +60,7 @@
     "react/require-extension": 1,
     "react/self-closing-comp": 1,
     "react/sort-comp": 1,
-    "react/wrap-multilines": 1
+    "react/wrap-multilines": 1,
+    "react/jsx-no-bind": 0
   }
 }
