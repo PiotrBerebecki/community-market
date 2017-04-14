@@ -1,9 +1,9 @@
 import { FETCH_ITEM } from './../constants';
 
-const currentItem = {
-  name: 'Thing',
-  price: '13412344124'
-};
+// const currentItem = {
+//   name: 'Thing',
+//   price: '13412344124'
+// };
 
 export default function(state = {}, action) {
   // console.log('action.payload', action.payload);

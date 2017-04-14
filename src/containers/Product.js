@@ -7,7 +7,7 @@ import { fetchItem } from './../actions/index.js';
 
 
 class Product extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchItem('1');
   }
 
