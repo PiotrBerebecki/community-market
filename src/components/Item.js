@@ -1,18 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
-const Item = (props) => (
+const ItemLink = (props) => (
   <li>
     <Link to={props.path}>{props.itemName}</Link>
   </li>
 );
 
 
-Item.propTypes = {
-  itemName:React.PropTypes.string.isRequired,
-  path: React.PropTypes.string.isRequired
+ItemLink.propTypes = {
+  itemName: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired
 };
 
 
-export default Item;
+export default ItemLink;

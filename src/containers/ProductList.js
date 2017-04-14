@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import uuid from 'uuid/v4';
 
-import Item from './../components/Item';
+import ItemLink from './../components/Item';
 
 
 class ProductList extends Component {
@@ -16,7 +16,7 @@ class ProductList extends Component {
     };
   }
   render() {
-    const renderItems = this.state.items.map(item => <Item  key={uuid()} {...item}/>);
+    const renderItems = this.state.items.map(item => <ItemLink  key={uuid()} {...item}/>);
     return (
       <ul>
         {renderItems}

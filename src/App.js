@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
-import ProductList from './containers/ProductList';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import ProductList from './containers/ProductList';
+import Product from './containers/Product';
+import './App.css';
+
 
 class App extends Component {
   render() {
@@ -9,10 +12,15 @@ class App extends Component {
       <Router>
         <div className="App">
           Welcome to the Community Market
-          <Route path="/tv" render={() => <h1>TV</h1>}/>
           <Route exact path="/" component={ProductList}/>
-          </div>
-        </Router>
+
+          <Route path="/:item" render={({match}) => (
+              <Product item={match.params.item} />
+            )}
+          />
+
+        </div>
+      </Router>
     );
   }
 }
