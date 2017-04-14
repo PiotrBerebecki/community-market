@@ -8,7 +8,9 @@ import { fetchItem } from './../actions/index.js';
 
 class Product extends Component {
   componentDidMount() {
-    this.props.fetchItem(this.props.item.id);
+    // console.log('===== this.props', this.props);
+    // this.props.fetchItem(this.props.);
+    this.props.fetchItem();
   }
 
   render() {
