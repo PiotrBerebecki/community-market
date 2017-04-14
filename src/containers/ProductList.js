@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import uuid from 'uuid/v4';
 
 import ItemLink from './../components/Item';
 
 
-class ProductList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      items: [
-        { itemName: 'TV', path: 'tv'},
-        { itemName: 'Phone', path: 'phone'},
-        { itemName: 'Jeans', path: 'jeans'},
-      ]
-    };
-  }
-  render() {
-    const renderItems = this.state.items.map(item => <ItemLink  key={uuid()} {...item}/>);
-    return (
-      <ul>
-        {renderItems}
-      </ul>
-    );
-  }
-}
+const ProductList = (props) => {
+  const renderItems = props.items.map(item => <ItemLink  key={uuid()} {...item}/>);
+  return (
+    <ul>
+      {renderItems}
+    </ul>
+  );
+};
 
 
-export default ProductList;
+ProductList.propTypes = {
+  items: PropTypes.array.isRequired,
+};
+
+
+const mapStateToProps = (state) => ({
+  items: state.items
+});
+
+
+export default connect(mapStateToProps, null)(ProductList);
