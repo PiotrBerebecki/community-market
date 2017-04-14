@@ -8,14 +8,16 @@ import { fetchItem } from './../actions/index.js';
 
 class Product extends Component {
   componentDidMount() {
-    this.props.fetchItem('1');
+    this.props.fetchItem(this.props.item.id);
   }
 
   render() {
+    console.log('===== this.props.item', this.props.item);
     return (
       <div>
-        <div>{this.props.item.title}</div>
         <div>{this.props.item.id}</div>
+        <div>{this.props.item.name}</div>
+        <div>{this.props.item.price}</div>
       </div>
     );
   }

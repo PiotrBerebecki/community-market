@@ -2,9 +2,9 @@ import { FETCH_ITEMS } from './../constants';
 
 
 const items =  [
-  { itemName: 'TV', path: 'tv'},
-  { itemName: 'Phone', path: 'phone'},
-  { itemName: 'Jeans', path: 'jeans'},
+  // { id: 1, itemName: 'TV', path: 'tv'},
+  // { id: 2, itemName: 'Phone', path: 'phone'},
+  // { id: 3, itemName: 'Jeans', path: 'jeans'},
 ];
 
 
