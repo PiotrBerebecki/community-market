@@ -24,6 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "server": "nodemon api/server.js -e 'js'"
+    "rename": "mv build/index.html build/200.html",
+    "surge": "surge ./build --domain community-market.surge.sh",
+    "deploy": "run-s build rename surge"
   }
 }

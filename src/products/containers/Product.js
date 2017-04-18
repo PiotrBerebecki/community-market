@@ -3,36 +3,36 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { fetchItem } from './../actions/index.js';
+import { fetchProduct } from './../actions/index.js';
 
 class Product extends Component {
   componentDidMount() {
-    this.props.fetchItem(this.props.id);
+    this.props.fetchProduct(this.props.id);
     // console.log('===== this.props.slug', this.props.slug);
   }
 
   render() {
     return (
       <div>
-        <div>{this.props.item.id}</div>
-        <div>{this.props.item.product_name}</div>
-        <div>{this.props.item.price}</div>
+        <div>{this.props.product.id}</div>
+        <div>{this.props.product.product_name}</div>
+        <div>{this.props.product.price}</div>
       </div>
     );
   }
 }
 
 Product.propTypes = {
-  item: PropTypes.object.isRequired,
-  fetchItem: PropTypes.func.isRequired,
+  product: PropTypes.object.isRequired,
+  fetchProduct: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  item: state.item,
+  product: state.product,
 });
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ fetchItem }, dispatch);
+  return bindActionCreators({ fetchProduct }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
