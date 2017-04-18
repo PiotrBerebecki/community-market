@@ -9,10 +9,9 @@ import promise from 'redux-promise';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
-
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducer)}>
     <App />
-  </Provider>
-  , document.getElementById('root')
+  </Provider>,
+  document.getElementById('root')
 );

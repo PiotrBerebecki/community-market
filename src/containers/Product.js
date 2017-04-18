@@ -5,12 +5,9 @@ import { bindActionCreators } from 'redux';
 
 import { fetchItem } from './../actions/index.js';
 
-
 class Product extends Component {
   componentDidMount() {
-    // console.log('===== this.props', this.props);
-    // this.props.fetchItem(this.props.);
-    this.props.fetchItem();
+    this.props.fetchItem(this.props.item.id);
   }
 
   render() {
@@ -25,21 +22,17 @@ class Product extends Component {
   }
 }
 
-
 Product.propTypes = {
   // item: PropTypes.object.isRequired,
   // fetchItem: PropTypes.func.isRequired,
 };
 
-
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   item: state.item,
 });
 
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({fetchItem}, dispatch);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ fetchItem }, dispatch);
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
