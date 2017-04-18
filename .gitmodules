@@ -1,0 +1,3 @@
+[submodule "community-api"]
+	path = community-api
+	url = git://github.com/Akin909/community-api.git

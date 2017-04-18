@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import ProductList from './containers/ProductList';
-import Product from './containers/Product';
+import ProductList from './../products/containers/ProductList';
+import Product from './../products/containers/Product';
 import './App.css';
-
 
 class App extends Component {
   render() {
@@ -12,11 +11,11 @@ class App extends Component {
       <Router>
         <div className="App">
           Welcome to the Community Market
-          <Route exact path="/" component={ProductList}/>
+          <Route exact path="/" component={ProductList} />
 
-          <Route path="/:item" render={({match}) => (
-              <Product item={match.params.item} />
-            )}
+          <Route
+            path="/:slug/:id"
+            render={({ match }) => <Product {...match.params} />}
           />
 
         </div>
