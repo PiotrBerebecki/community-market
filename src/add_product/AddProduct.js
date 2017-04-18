@@ -25,16 +25,20 @@ class AddProduct extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.addProduct(this.state).then(() => {
+    this.props.addProduct(this.state).then(res => {
       this.setState({
         product_name: '',
         price: '',
         image_url: '',
       });
+      // console.log('===== res', res.payload.data);
     });
   }
 
   render() {
+    if (this.props.ids.length > 0) {
+      console.log('===== obj', this.props.ids[this.props.ids.length - 1]);
+    }
     return (
       <form onSubmit={this.handleSubmit}>
         <input
@@ -64,8 +68,12 @@ class AddProduct extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  ids: state.addProduct,
+});
+
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({ addProduct }, dispatch);
 };
 
-export default connect(null, mapDispatchToProps)(AddProduct);
+export default connect(mapStateToProps, mapDispatchToProps)(AddProduct);
