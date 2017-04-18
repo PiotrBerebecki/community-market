@@ -14,13 +14,11 @@ class ProductList extends Component {
   render() {
     let renderItems = 'Loading...';
     if (Object.keys(this.props.items).length) {
-      renderItems = Object.keys(this.props.items).map((key) => {
-        return <ItemLink key={uuid()} {...this.props.items[key]}/>
+      renderItems = Object.keys(this.props.items).map(key => {
+        return <ItemLink key={uuid()} {...this.props.items[key]} />;
       });
     }
-    return (
-      <ul>{renderItems}</ul>
-    );
+    return <ul>{renderItems}</ul>;
   }
 }
 
@@ -29,15 +27,12 @@ ProductList.propTypes = {
   items: PropTypes.object.isRequired,
 };
 
-
-const mapStateToProps = (state) => ({
-  items: state.items
+const mapStateToProps = state => ({
+  items: state.items,
 });
 
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({fetchItems}, dispatch);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ fetchItems }, dispatch);
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

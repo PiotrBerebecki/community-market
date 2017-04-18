@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const ItemLink = props => (
   <li>
-    <Link to={props.slug}>{props.name}</Link>
+    <Link to={`${props.slug}/${props.id}`}>{props.name}</Link>
   </li>
 );
 

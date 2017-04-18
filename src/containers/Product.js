@@ -7,11 +7,11 @@ import { fetchItem } from './../actions/index.js';
 
 class Product extends Component {
   componentDidMount() {
-    this.props.fetchItem(this.props.item.id);
+    this.props.fetchItem(this.props.id);
+    console.log('===== this.props.slug', this.props.slug);
   }
 
   render() {
-    console.log('===== this.props.item', this.props.item);
     return (
       <div>
         <div>{this.props.item.id}</div>
