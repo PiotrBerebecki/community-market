@@ -13,9 +13,9 @@ class ProductList extends Component {
   }
   render() {
     let renderItems = 'Loading...';
-    if (Object.keys(this.props.items).length) {
-      renderItems = Object.keys(this.props.items).map(key => {
-        return <ItemLink key={uuid()} {...this.props.items[key]} />;
+    if (this.props.items.length > 0) {
+      renderItems = this.props.items.map(item => {
+        return <ItemLink key={uuid()} {...item} />;
       });
     }
     return <ul>{renderItems}</ul>;
@@ -24,7 +24,7 @@ class ProductList extends Component {
 
 ProductList.propTypes = {
   fetchItems: PropTypes.func.isRequired,
-  items: PropTypes.object.isRequired,
+  items: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => ({

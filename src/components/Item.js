@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 const ItemLink = props => (
   <li>
-    <Link to={`${props.slug}/${props.id}`}>{props.name}</Link>
+    <Link to={`${props.slug}/${props.id}`}>{props.product_name}</Link>
   </li>
 );
 
 ItemLink.propTypes = {
-  name: PropTypes.string.isRequired,
+  product_name: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
 };
 
