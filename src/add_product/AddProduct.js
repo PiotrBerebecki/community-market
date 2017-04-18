@@ -25,7 +25,13 @@ class AddProduct extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.addProduct(this.state);
+    this.props.addProduct(this.state).then(() => {
+      this.setState({
+        product_name: '',
+        price: '',
+        image_url: '',
+      });
+    });
   }
 
   render() {
