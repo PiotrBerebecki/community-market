@@ -31,13 +31,26 @@ class AddProduct extends Component {
         price: '',
         image_url: '',
       });
-      // console.log('===== res', res.payload.data);
     });
   }
 
   render() {
     if (this.props.ids.length > 0) {
-      console.log('===== obj', this.props.ids[this.props.ids.length - 1]);
+      //TODO figure out how to stop the from not being re-rendered after first
+      //submission
+      return (
+        <div>
+          <div>
+            Your order has been submitted. Here is your reference number
+            {this.props.ids[this.props.ids.length - 1]}.
+          </div>
+          {this.props.ids.length > 1
+            ? <div>
+                By the way here are all your orders so far {this.props.ids[0]}
+              </div>
+            : null}
+        </div>
+      );
     }
     return (
       <form onSubmit={this.handleSubmit}>
