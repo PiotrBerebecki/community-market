@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { addProduct } from './actions';
 
 class AddProduct extends Component {
   constructor(props) {
@@ -20,7 +23,10 @@ class AddProduct extends Component {
     });
   }
 
-  handleSubmit(event) {}
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.addProduct(this.state);
+  }
 
   render() {
     return (
@@ -28,21 +34,21 @@ class AddProduct extends Component {
         <input
           onChange={this.handleInput}
           value={this.state.product_name}
-          type="submit"
+          type="text"
           placeholder="product name"
           name="product_name"
         />
         <input
           onChange={this.handleInput}
           value={this.state.price}
-          type="submit"
+          type="text"
           placeholder="product price"
           name="price"
         />
         <input
           onChange={this.handleInput}
           value={this.state.image_url}
-          type="submit"
+          type="text"
           placeholder="product image link"
           name="image_url"
         />
@@ -52,4 +58,8 @@ class AddProduct extends Component {
   }
 }
 
-export default AddProduct;
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ addProduct }, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(AddProduct);
