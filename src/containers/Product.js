@@ -15,7 +15,7 @@ class Product extends Component {
     return (
       <div>
         <div>{this.props.item.id}</div>
-        <div>{this.props.item.name}</div>
+        <div>{this.props.item.product_name}</div>
         <div>{this.props.item.price}</div>
       </div>
     );
